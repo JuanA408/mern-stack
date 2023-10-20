@@ -25,13 +25,13 @@ function Login() {
     if (isError) {
       toast.error(message);
     }
+
     if (isSuccess || user) {
       navigate("/");
     }
 
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
-
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -46,13 +46,13 @@ function Login() {
     const userData = {
       email,
       password,
-    }
+    };
 
-    dispatch(login(userData))
+    dispatch(login(userData));
   };
 
-  if(isLoading) {
-    return <Spinner />
+  if (isLoading) {
+    return <Spinner />;
   }
 
   return (
@@ -61,7 +61,7 @@ function Login() {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login to set goals</p>
+        <p>Login and start setting goals</p>
       </section>
 
       <section className="form">
@@ -88,6 +88,7 @@ function Login() {
               onChange={onChange}
             />
           </div>
+
           <div className="form-group">
             <button type="submit" className="btn btn-block">
               Submit
@@ -100,4 +101,3 @@ function Login() {
 }
 
 export default Login;
-
